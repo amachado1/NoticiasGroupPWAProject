@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Noticias Group</title>
+  <rect x="30" y="30" width="452" height="452" fill="#fff" stroke="#087cb8" stroke-width="24"/>
+  <path d="M92 402V110h54l126 186V110h59v292h-52L151 211v191zm276 0V110h59v292z" fill="#087cb8"/>
+</svg>
