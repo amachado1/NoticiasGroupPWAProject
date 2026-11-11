@@ -79,7 +79,6 @@ function AppHeader() {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [installPromptEvent, setInstallPromptEvent] = useState(null);
   const [categories, setCategories] = useState([]);
   const [categoryError, setCategoryError] = useState('');
   const navigate = useNavigate();
@@ -87,15 +86,6 @@ function AppHeader() {
 
   useEffect(() => {
     const controller = new AbortController();
-    const beforeInstallPrompt = (event) => {
-      event.preventDefault();
-      setInstallPromptEvent(event);
-    };
-
-    const appInstalled = () => setInstallPromptEvent(null);
-
-    window.addEventListener('beforeinstallprompt', beforeInstallPrompt);
-    window.addEventListener('appinstalled', appInstalled);
     fetchCategories({ signal: controller.signal })
       .then((items) => setCategories(sortCategories(items)))
       .catch((error) => {
@@ -104,8 +94,6 @@ function AppHeader() {
 
     return () => {
       controller.abort();
-      window.removeEventListener('beforeinstallprompt', beforeInstallPrompt);
-      window.removeEventListener('appinstalled', appInstalled);
     };
   }, []);
 
@@ -146,19 +134,6 @@ function AppHeader() {
           >
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" /><path d="m16 16 5 5" /></svg>
           </button>
-          {installPromptEvent && (
-            <button
-              type="button"
-              className="header-icon-button install-toggle"
-              aria-label="Instalar aplicación"
-              onClick={async () => {
-                await installPromptEvent.prompt();
-                setInstallPromptEvent(null);
-              }}
-            >
-              Instalar
-            </button>
-          )}
           <button
             type="button"
             className={`header-icon-button menu-toggle${menuOpen ? ' is-open' : ''}`}

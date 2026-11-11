@@ -994,12 +994,6 @@ button {
   transform: translateY(-4px) rotate(-45deg);
 }
 
-.install-toggle {
-  width: auto;
-  color: #087cb8;
-  font-weight: 700;
-}
-
 .main-nav {
   display: none;
   max-width: 1200px;
