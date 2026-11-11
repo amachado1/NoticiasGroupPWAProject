@@ -9,7 +9,9 @@ Responsive React PWA for Noticias Group. Published news, categories, article bod
 3. Optional for the MailerLite page: copy `.env.example` to `.env.local` and set `VITE_MAILERLITE_FORM_ID` to an active embedded form ID from the Noticias Group MailerLite account.
 4. Run `npm run dev`.
 
-The MailerLite account ID `2572385` is already published by the current Noticias Group website and is used as the default. The embedded form ID is not available in this project, so newsletter enrollment stays disabled and explicitly reports that no information was submitted until the ID is configured. Do not put MailerLite API keys or other secrets in `VITE_*` variables. The official embedded form handles validation, duplicates, consent, and double opt-in according to its MailerLite form/account settings.
+In VS Code, the `Start Noticias Group PWA` task starts the development server when this project folder opens. Use the `Run Noticias Group PWA` launch configuration (F5) to open the app in Chrome. The local preview is available at `http://127.0.0.1:5173/` only while the development server is running; closing VS Code or shutting down the computer stops it. To resume, reopen the project folder or run `npm run dev` in the integrated terminal.
+
+The MailerLite account ID `2572385` and embedded form ID `CLV9Lb` are configured for local development in `.env.local`. The production hosting environment must also define these variables and rebuild the app for the newsletter form to appear there. Do not put MailerLite API keys or other secrets in `VITE_*` variables. The official embedded form handles validation, duplicates, consent, and double opt-in according to its MailerLite form/account settings.
 
 ## Build and deploy
 
